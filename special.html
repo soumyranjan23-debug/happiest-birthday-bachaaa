@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Palak! 🎉</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+ body{
+    background:
+    radial-gradient(circle at top left,#ffd6e7 0%,transparent 35%),
+    radial-gradient(circle at bottom right,#ffc2da 0%,transparent 35%),
+    linear-gradient(135deg,#ffffff,#fff7fb,#ffeef5);
+}
+
+
+        .top-bar {
+            position: fixed;
+            top: 20px;
+            left: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 30px;
+            z-index: 100;
+        }
+
+        .tag {
+            background: rgba(255, 255, 255, 0.07);
+            backdrop-filter: blur(10px);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: #ff9ebb;
+        }
+
+        section {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 40px 20px;
+            text-align: center;
+            position: relative;
+            border-bottom: 1px solid rgba(255, 71, 126, 0.1);
+        }
+
+        .hidden-page {
+            display: none !important;
+        }
+.neon-text{
+    font-family:'Great Vibes', cursive;
+    font-size:7rem;
+    font-weight:normal;
+    color:#ff477e;
+    letter-spacing:2px;
+}
+
+       .sub-text{
+    color:#7a4a5c;
+}
+        .cta-btn {
+            background: linear-gradient(45deg, #ff477e, #ff2a65);
+            color: white;
+            border: none;
+            padding: 14px 35px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            border-radius: 30px;
+            cursor: pointer;
+            box-shadow: 0 0 15px rgba(255, 71, 126, 0.4);
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 20px;
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 0 25px rgba(255, 71, 126, 0.7);
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            max-width: 1200px;
+            width: 100%;
+            margin-top: 30px;
+        }
+.card{
+    background:rgba(255,255,255,0.09);
+    border:1px solid rgba(255,71,126,.2);
+    backdrop-filter:blur(15px);
+}
+
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(255, 71, 126, 0.5);
+        }
+
+        .card h3 {
+            color: #e91663;
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+            border-bottom: 1px solid rgba(255, 71, 126, 0.2);
+            padding-bottom: 8px;
+        }
+
+        .card ul {
+            list-style: none;
+        }
+
+        .card ul li {
+            margin-bottom: 12px;
+            color: #333;
+            line-height: 1.5;
+            position: relative;
+            padding-left: 20px;
+        font-weight: 600;
+        }
+
+
+        .card ul li::before {
+            content: "✨";
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+
+        .traits-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .trait-box {
+            background: rgba(255, 71, 126, 0.1);
+            padding: 12px;
+            border-radius: 10px;
+            text-align: center;
+            font-size: 0.95rem;
+            border: 1px solid rgba(255, 71, 126, 0.2);
+        }
+
+        .letter-container{
+    background:rgba(255,255,255,.75);
+    border:1px solid rgba(255,71,126,.25);
+}
+       .letter-content{
+    color:#444;
+}
+
+        .letter-content::-webkit-scrollbar {
+            width: 6px;
+        }
+        .letter-content::-webkit-scrollbar-thumb {
+            background-color: #ff477e;
+            border-radius: 10px;
+        }
+
+        .cake-wrapper {
+            position: relative;
+            width: 260px;
+            height: 250px;
+            margin: 30px auto;
+            cursor: pointer;
+        }
+
+        .knife {
+            position: absolute;
+            top: -40px;
+            left: 50%;
+            transform: translateX(-50%) rotate(45deg);
+            font-size: 3rem;
+            z-index: 10;
+            transition: all 0.5s ease;
+            pointer-events: none;
+            opacity: 0.8;
+        }
+
+        .cake-left, .cake-right {
+            position: absolute;
+            bottom: 10px;
+            width: 100px;
+            height: 120px;
+            background: #ff6593;
+            box-shadow: inset 0 10px 0 rgba(255,255,255,0.3);
+            transition: transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .cake-left {
+            left: 30px;
+            border-radius: 20px 0 0 10px;
+            border-right: 3px solid #e64a79;
+        }
+
+        .cake-right {
+            left: 130px;
+            border-radius: 0 20px 10px 0;
+            border-left: 3px solid #e64a79;
+        }
+
+        .cake-left::before, .cake-right::before {
+            content: "";
+            position: absolute;
+            top: 40px;
+            left: 0;
+            width: 100%;
+            height: 25px;
+            background: #fff;
+            box-shadow: 0 5px 0 #f0f0f0;
+        }
+
+        .candle {
+            position: absolute;
+            bottom: 130px;
+            left: 122px;
+            width: 16px;
+            height: 50px;
+            background: linear-gradient(to right, #ffeb3b, #ff9800);
+            border-radius: 4px;
+            z-index: 5;
+            transition: opacity 0.3s ease;
+        }
+
+        .flame {
+            position: absolute;
+            top: -20px;
+            left: 2px;
+            width: 12px;
+            height: 22px;
+            background: #ff9800;
+            border-radius: 50% 50% 20% 20%;
+            box-shadow: 0 0 15px #ffeb3b, 0 0 25px #ff5722;
+            animation: flicker 0.6s infinite alternate;
+        }
+
+        @keyframes flicker {
+            0% { transform: scale(1) rotate(-2deg); }
+            100% { transform: scale(1.1) rotate(2deg); opacity: 0.9; }
+        }
+
+        .cake-wrapper.cut-active .knife {
+            animation: cutMotion 0.5s forwards;
+        }
+
+        @keyframes cutMotion {
+            0% { top: -40px; transform: translateX(-50%) rotate(45deg); }
+            50% { top: 60px; transform: translateX(-50%) rotate(0deg); opacity: 1; }
+            100% { top: 160px; transform: translateX(-50%) rotate(-20deg); opacity: 0; }
+        }
+
+        .cake-wrapper.blown .candle {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .cake-wrapper.blown .cake-left {
+            transform: translateX(-25px) rotate(-5deg);
+        }
+
+        .cake-wrapper.blown .cake-right {
+            transform: translateX(25px) rotate(5deg);
+        }
+
+        .big-heart-container {
+            border: 2px dashed rgba(255, 71, 126, 0.4);
+            padding: 40px;
+            border-radius: 50%;
+            display: inline-block;
+            margin-top: 30px;
+            box-shadow: 0 0 30px rgba(255, 71, 126, 0.2);
+        }
+
+        .final-heart {
+            font-size: 2rem;
+            color: #fff;
+            text-shadow: 0 0 15px #ff477e;
+            font-weight: bold;
+        }
+
+        .footer-note {
+            margin-top: 30px;
+            font-size: 1rem;
+            color: #ffb3c6;
+            font-style: italic;
+        }
+        .floating-hearts{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    pointer-events:none;
+    overflow:hidden;
+    z-index:1;
+}
+
+.heart{
+    position: absolute;
+    font-size: 70px;
+    opacity: 0.75;
+    pointer-events: none;
+    animation: floatUp linear infinite;
+}
+
+@keyframes floatHeart{
+    0%{
+        transform:translateY(0) translateX(0);
+        opacity:0;
+    }
+
+    20%{
+        opacity:.8;
+    }
+
+    100%{
+        transform:translateY(-120vh) translateX(30px);
+        opacity:0;
+    }
+}
+@keyframes floatUp{
+    0%{
+        transform: translateY(100vh) rotate(0deg);
+        opacity: 0;
+    }
+
+    20%{
+        opacity: 0.8;
+    }
+
+    100%{
+        transform: translateY(-120vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+</head>
+<body>
+ 
+<div class="floating-hearts"></div>
+    <div class="top-bar">
+        <div class="tag">Made with ❤️ for Palak</div>
+    </div>
+
+    <section id="page1">
+        <div class="neon-text">Happy Birthday<br>Palak</div>
+        <p class="sub-text">A little surprise made especially for you 💖<br>Click the button below and let me take you on a beautiful journey...</p>
+        <button class="cta-btn" onclick="showPage('page2')">Start Journey 💕</button>
+    </section>
+
+    <section id="page2" class="hidden-page">
+        <div class="neon-text" style="font-size: 2.5rem; margin-bottom: 40px;">Some Things Worth Saying ✨</div>
+        
+        <div class="grid-container">
+            <div class="card">
+                <h3>Things I Admire About You 💖</h3>
+                <div class="traits-grid">
+                    <div class="trait-box">Your Smile 😊</div>
+                    <div class="trait-box">Your Kindness 🌸</div>
+                    <div class="trait-box">Your Confidence ⚡</div>
+                    <div class="trait-box">Your Honesty 💗</div>
+                    <div class="trait-box">Your Energy ⭐</div>
+                    <div class="trait-box">Your Personality 🎀</div>
+                </div>
+                <p style="margin-top: 20px; text-align: center; color: #ff9ebb; font-weight: bold;">You're truly one of a kind! 👑</p>
+            </div>
+
+            <div class="card">
+                <h3>Worth Saying 📝</h3>
+                <ul>
+                    <li>You have the kind of presence that makes ordinary moments feel special.</li>
+                    <li>Some people are beautiful. Some people are memorable. You somehow manage to be both.</li>
+                    <li>A lot of people want attention. You naturally earn respect.</li>
+                    <li>The more I got to know you, the more I realized how rare you are.</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h3>High Standards? You Are! </h3>
+                <ul>
+                    <li>You don't settle for less, and that's what makes you rare.</li>
+                    <li>You know your worth, and that's what makes you powerful.</li>
+                    <li>You carry yourself with grace, and that's what makes you unforgettable.</li>
+                </ul>
+                <p style="margin-top: 15px; text-align: center; color: #ff477e; font-weight: bold;">Keep shining, Palak! ✨</p>
+            </div>
+        </div>
+
+        <div>
+            <button class="cta-btn" onclick="showPage('page3')">Read My Letter ✉️</button>
+        </div>
+    </section>
+
+    <section id="page3" class="hidden-page">
+        <div class="neon-text" style="font-size: 2.5rem; margin-bottom: 30px;">A Letter For You 💌</div>
+        
+        <div class="letter-container">
+            <h2 style="color: #ff477e; margin-bottom: 15px;">My Dearest Palak,</h2>
+            <div class="letter-content">
+                <p><strong>Happiest birthday to the most special person in my life. ❤️‍🩹🫂</strong><br><br>
+                It's crazy to think that on March 23, 2025, we were just strangers. We barely talked, and sometimes we'd only chat once in a while. Then, little by little, things changed. We started talking more, sharing more, and before I even realized it, you became one of the most important people in my life.<br><br>
+                You became my best friend.<br><br>
+                And yes, you also became my pasandida aurat. 🎀<br><br>
+                I fell for you, and to be honest, I don't think you can imagine how much this boy cares about you. Sometimes I'm possessive, sometimes I get jealous, not because I want to control anything, but because seeing someone so special to me means I care more than I can explain.<br><br>
+                Many girls have told me about their feelings over time, and my answer has always been the same: I'm not interested. The truth is, my heart has already chosen someone. I'm a one-woman man, and that woman is you.<br><br>
+                You're the person who cares for me, guides me, tells me what's right and what's wrong, and supports me in ways that remind me of the warmth and care I receive from my mother. That's something I value more than words can express.<br><br>
+                Very few people know about you. Not because I'm hiding you, but because I always feel, "Nazar lag jaayegi yaar." I don't want to lose someone who means so much to me.<br><br>
+                In fact, the only person who truly knows about you is my mumma. I've told her about you. I've told her that I like you and that I want you to be a part of my future. And when I spoke about you, she genuinely felt happy hearing about your nature, your behavior, and the kind of person you are.<br><br>
+                A lot of people make promises. A lot of people say they'll stay forever. I'm not here to make big speeches. I'm just being honest when I say that my feelings for you are real.<br><br>
+                Whenever you go offline for a day or two, I genuinely miss you. Not because I have nobody else to talk to, but because you're the person I actually want to talk to. You're the person whose messages I wait for, whose presence makes my day better, and whose happiness matters to me.<br><br>
+                No matter what happens, I want you to know this:<br><br>
+                I will always be there for you. Even if the whole world stood against you, I would still stand there and proudly say: "I'm proud of her."<br><br>
+                You deserve happiness, peace, success, and every beautiful thing life has to offer. Thank you for being my best friend, for being yourself, and for becoming such an important part of my life.<br><br>
+                Once again,<br>
+                <strong>Happyyy Hpyyyyy Wala Birthday Bachaaa 🧿❤️‍🩹😚</strong><br><br>
+                Stay blessed, keep smiling, and never forget how special you are.</p>
+            </div>
+            <div style="text-align: right; color: #ff9ebb; font-weight: bold; font-size: 1.1rem;">
+                With all my love and best wishes,<br>
+                <span style="color: #fff; text-shadow: 0 0 5px #ff477e;">Roshan ❤️</span>
+            </div>
+        </div>
+
+        <div>
+            <button class="cta-btn" onclick="showPage('page4')">Final Surprise 🎁</button>
+        </div>
+    </section>
+
+    <section id="page4" class="hidden-page">
+        <div class="neon-text" style="font-size: 2.8rem;">Final Surprise 🎉</div>
+        <p class="sub-text" id="cake-instruction" style="font-size: 1.3rem; color: #ffb3c6;">
+            Click on the Cake to Cut it with Knife! 🎂🔪
+        </p>
+        
+        <div class="cake-wrapper" id="birthday-cake" onclick="cutCake()">
+            <div class="knife">🔪</div>
+            <div class="candle">
+                <div class="flame"></div>
+            </div>
+            <div class="cake-left"></div>
+            <div class="cake-right"></div>
+        </div>
+        
+        <div id="surprise-wishes" class="hidden-page">
+            <div class="neon-text" style="font-size: 2.5rem; margin-top: 20px;">Happy Birthday Once Again, Palak! 💞</div>
+            <p class="sub-text" style="font-size: 1.4rem; color: #fff;">
+                No matter where life takes us, I hope your smile never fades.
+            </p>
+            <p class="sub-text">May this year bring you endless happiness, success, good health and beautiful memories. You deserve the world! 🌸</p>
+
+            <div class="big-heart-container">
+                <div class="final-heart">
+                    With all my heart,<br>
+                    <span style="font-size: 2.5rem; color: #ff477e;">Roshan 💖</span>
+                </div>
+            </div>
+
+            <p class="footer-note">"You are amazing, you are unique, you are you. And that's your superpower." 💕</p>
+        </div>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+    <script>
+        function showPage(pageId) {
+            const nextPage = document.getElementById(pageId);
+            nextPage.classList.remove('hidden-page');
+            
+            setTimeout(() => {
+                nextPage.scrollIntoView({ behavior: 'smooth' });
+            }, 50);
+
+            if(pageId === 'page2') {
+                confetti({ particleCount: 150, spread: 70, origin: { y: 0.6 } });
+            }
+        }
+
+        function cutCake() {
+            const cakeWrapper = document.getElementById('birthday-cake');
+            const instruction = document.getElementById('cake-instruction');
+            const wishes = document.getElementById('surprise-wishes');
+
+            if (!cakeWrapper.classList.contains('blown')) {
+                cakeWrapper.classList.add('cut-active');
+                
+                setTimeout(() => {
+                    cakeWrapper.classList.add('blown');
+                    instruction.innerHTML = "Yay! Cake Cut Ho Gaya! 🥳🎉";
+                    wishes.classList.remove('hidden-page');
+
+                    var duration = 4 * 1000;
+                    var end = Date.now() + duration;
+
+                    (function frame() {
+                        confetti({ particleCount: 6, angle: 60, spread: 60, origin: { x: 0, y: 0.7 } });
+                        confetti({ particleCount: 6, angle: 120, spread: 60, origin: { x: 1, y: 0.7 } });
+                        
+                        if (Date.now() < end) {
+                            requestAnimationFrame(frame);
+                        }
+                    }());
+                }, 300);
+            }
+        }
+      
+
+const heartsContainer = document.querySelector('.floating-hearts');
+
+if(heartsContainer){
+
+for(let i=0;i<25;i++){
+
+    let heart = document.createElement('div');
+
+    heart.className = 'heart';
+
+    heart.innerHTML = ['💗','💖','💕'][Math.floor(Math.random()*3)];
+
+    heart.style.left = Math.random()*100 + 'vw';
+
+    heart.style.fontSize =
+    (40 + Math.random()*30) + 'px';
+
+    heart.style.animationDuration =
+    (8 + Math.random()*8) + 's';
+
+    heart.style.animationDelay =
+    Math.random()*5 + 's';
+
+    heartsContainer.appendChild(heart);
+
+}
+
+}
+    </script>
+</body>
+</html>
